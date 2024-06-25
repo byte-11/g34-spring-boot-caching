@@ -1,5 +1,6 @@
 package uz.bellissimo.g34springbootcaching.service;
 
+import java.util.List;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 import uz.bellissimo.g34springbootcaching.domain.user.User;
@@ -33,5 +34,11 @@ public class UserService {
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    @SneakyThrows
+    public List<User> getAllUsers() {
+        Thread.sleep(10_000);
+        return userRepository.findAll();
     }
 }
